@@ -7,7 +7,7 @@ export default function FootballBestPlayers() {
     <>
       <section>
         <header>
-          <h1>Best 20 Football Player</h1>
+          <h1>Best 20 Football Players</h1>
         </header>
         <div className="container">
           {players.map((player) => {
