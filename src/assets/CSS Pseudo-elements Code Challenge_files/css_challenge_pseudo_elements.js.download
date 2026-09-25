@@ -1,0 +1,73 @@
+window.CHALLENGE_DATA = {
+  challenges: [
+    {
+      id: "pseudo_elements_before_after_letter",
+      intro:
+        "Inside the editor, complete the following steps:" +
+        "<ol style='margin:8px 0 0 18px;padding:0'>" +
+        "<li style='margin-top:8px'>Add a <code class='w3-codespan'>p::first-letter</code> rule: set font-size to <strong>200%</strong>, color to <strong>#04AA6D</strong>, and float to <strong>left</strong> (creates a drop cap)</li>" +
+        "<li style='margin-top:8px'>Add a <code class='w3-codespan'>h2::before</code> rule: set content to <strong>\"\\2605 \"</strong> (a star) and color to <strong>gold</strong></li>" +
+        "<li style='margin-top:8px'>Add a <code class='w3-codespan'>h2::after</code> rule: set content to <strong>\" \\2605\"</strong> and color to <strong>gold</strong></li>" +
+        "</ol>",
+      starter:
+        "<!DOCTYPE html>\n" +
+        "<html>\n" +
+        "<head>\n" +
+        "<style>\n" +
+        "/* add p::first-letter rule (drop cap) */\n" +
+        "\n" +
+        "/* add h2::before rule (star before) */\n" +
+        "\n" +
+        "/* add h2::after rule (star after) */\n" +
+        "</style>\n" +
+        "</head>\n" +
+        "<body>\n" +
+        "\n" +
+        "<h2>Featured Article</h2>\n" +
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>\n" +
+        "\n" +
+        "</body>\n" +
+        "</html>\n",
+      solution:
+        "<!DOCTYPE html>\n" +
+        "<html>\n" +
+        "<head>\n" +
+        "<style>\n" +
+        "p::first-letter {\n" +
+        "  font-size: 200%;\n" +
+        "  color: #04AA6D;\n" +
+        "  float: left;\n" +
+        "}\n" +
+        "\n" +
+        "h2::before {\n" +
+        "  content: \"\\2605 \";\n" +
+        "  color: gold;\n" +
+        "}\n" +
+        "\n" +
+        "h2::after {\n" +
+        "  content: \" \\2605\";\n" +
+        "  color: gold;\n" +
+        "}\n" +
+        "</style>\n" +
+        "</head>\n" +
+        "<body>\n" +
+        "\n" +
+        "<h2>Featured Article</h2>\n" +
+        "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>\n" +
+        "\n" +
+        "</body>\n" +
+        "</html>\n",
+      requirements: [
+        { type: "regex", id: "hasStyleTag", label: "Write CSS inside the <code class=\"w3-codespan\">&lt;style&gt;</code> tag", pattern: "<style>[\\s\\S]*?\\{[\\s\\S]*?</style>", flags: "i", linePattern: "</?style>", lineFlags: "i" },
+        { type: "regex", id: "hasLetterSize", label: "Add <code class=\"w3-codespan\">p::first-letter</code> font-size <strong>200%</strong>", pattern: "p::first-letter\\s*\\{[^}]*font-size\\s*:\\s*200%", flags: "i", linePattern: "p::first-letter|^\\s+font-size\\s*:\\s*200%", lineFlags: "i", lineScope: "p::first-letter\\s*\\{" },
+        { type: "regex", id: "hasLetterColor", label: "Set <code class=\"w3-codespan\">p::first-letter</code> color to <strong>#04AA6D</strong>", pattern: "p::first-letter\\s*\\{[^}]*color\\s*:\\s*#04AA6D", flags: "i", linePattern: "p::first-letter|^\\s+color\\s*:\\s*#04AA6D", lineFlags: "i", lineScope: "p::first-letter\\s*\\{" },
+        { type: "regex", id: "hasLetterFloat", label: "Set <code class=\"w3-codespan\">p::first-letter</code> float to <strong>left</strong>", pattern: "p::first-letter\\s*\\{[^}]*float\\s*:\\s*left", flags: "i", linePattern: "p::first-letter|^\\s+float\\s*:\\s*left", lineFlags: "i", lineScope: "p::first-letter\\s*\\{" },
+        { type: "regex", id: "hasBefore", label: "Add <code class=\"w3-codespan\">h2::before</code> with content and color <strong>gold</strong>", pattern: "h2::before\\s*\\{[^}]*content\\s*:[^}]*color\\s*:\\s*gold", flags: "i", linePattern: "h2::before|^\\s+content\\s*:|^\\s+color\\s*:\\s*gold", lineFlags: "i", lineScope: "h2::before\\s*\\{" },
+        { type: "regex", id: "hasAfter", label: "Add <code class=\"w3-codespan\">h2::after</code> with content and color <strong>gold</strong>", pattern: "h2::after\\s*\\{[^}]*content\\s*:[^}]*color\\s*:\\s*gold", flags: "i", linePattern: "h2::after|^\\s+content\\s*:", lineFlags: "i", lineScope: "h2::after\\s*\\{" }
+      ],
+      commonMistakes: [
+        { pattern: "h2:before|h2:after|p:first-letter", flags: "", msg: "Use double colon <code class='w3-codespan'>::before</code>, <code class='w3-codespan'>::after</code>, <code class='w3-codespan'>::first-letter</code> for pseudo-elements. Single colon is the old CSS2 syntax." }
+      ]
+    }
+  ]
+};

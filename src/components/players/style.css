@@ -1,0 +1,31 @@
+header {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.card {
+  border: 1px solid rgb(231, 225, 225);
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    0.3s ease;
+}
+
+img {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+}
+.card-body {
+  padding-left: 12px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
